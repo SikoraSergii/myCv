@@ -1,0 +1,66 @@
+<div *ngIf="!publishing; then first else second"
+     fxLayout="row" fxFlex=" 350px" fxLayoutAlign="center"></div>
+<!--Game over-->
+<ng-template #first>
+  <section class="mat-typography">
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex>
+      <div *ngIf="data.isWinner; then win else loose"
+           fxLayout="column" fxFlex="150px">
+      </div>
+      <ng-template #win><h2 mat-dialog-title class="title">You Win!</h2></ng-template>
+      <ng-template #loose><h2 mat-dialog-title class="title">Game Over</h2></ng-template>
+
+      <mat-dialog-content fxLayout="column" fxLayoutAlign="start" fxFlex="200px" fxLayoutGap="10px">
+        <div fxFlex="50px" fxLayoutAlign="center center" fxLayoutOffsset="30px">
+          <h4 *ngIf="data.isWinner" class="subheading-1" >
+            You have got {{data.timeBonus}} bonus points for speed
+          </h4>
+          <h4 class="subheading-1">
+            Your score: {{data.score}} points
+          </h4>
+        </div>
+        <p *ngIf="!publishing" class="body-1" fxFlex="50px" fxLayoutAlign="center center">
+          Try again or publish the result
+        </p>
+      </mat-dialog-content>
+      <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between" fxFlex="65px">
+        <button mat-raised-button color="primary" (click)="startNew()">New game</button>
+        <button mat-raised-button color="accent" (click)="startPublishing()">Publish</button>
+      </mat-dialog-actions>
+    </div>
+  </section>
+</ng-template>
+<!--Publish-->
+<ng-template #second class="container">
+  <div fxLayout="column" fxLayoutAlign="center" fxFlex class="mat-typography">
+    <h2 mat-dialog-title class="title" fxFlex="50px">Publishing</h2>
+    <mat-dialog-content fxFlex="200px" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="space-between">
+          <mat-chip fxFlex="100px">Level: {{data.level}}</mat-chip>
+          <mat-chip fxFlex="100px">Score: {{data.score}}</mat-chip>
+      </div>
+      <form [formGroup]="publishForm" class="form" fxLayout="column" fxFlexOffset="20px">
+        <mat-form-field>
+          <input formControlName="nickname" type="text" matInput placeholder="Nickname" />
+          <mat-error>{{getError()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea formControlName="comment" matInput placeholder="Your comments if any"></textarea>
+        </mat-form-field>
+
+      </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between" fxFlex="65px">
+      <button mat-raised-button color="primary" (click)="startNew()">New game</button>
+      <button mat-raised-button
+              color="accent"
+              (click)="finishPublishing()"
+              [disabled]="publishForm.invalid">
+        Send
+      </button>
+    </mat-dialog-actions>
+  </div>
+</ng-template>
+
+

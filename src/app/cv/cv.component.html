@@ -1,0 +1,174 @@
+<div class="content" fxLayout="column" fxLayoutGap="5px">
+  <!--Header-->
+  <div class="header">
+    <mat-card class="top-card" fxLayout="row" fxLayoutAlign="space-between start">
+      <mat-card-header class="header" fxLayout="row" fxLayoutAlign="start center">
+        <div class="avatar-section" fxFlex="150px" fxLayoutAlign="center center">
+          <div mat-card-avatar class="mat-avatar"></div>
+        </div>
+        <div class="name-section" fxLayout="column" fxLayoutAlign="center center" fxFlex="500px">
+          <mat-card-title class="name" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+            <h2 fxFlex="30px">Sikora Serg</h2>
+            <h4>JavaScript developer</h4>
+          </mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <!--Contacts-->
+      <mat-card-content class="contacts" fxFlex="340px">
+        <mat-list dense fxLayout="column">
+          <mat-list-item fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+            <div fxFlex="40px"><img class="matIcon" src="../../assets/email.svg" alt="Icon" /></div>
+            <h3>sikorasergii@gmail.com</h3>
+          </mat-list-item>
+          <mat-list-item (click)="onLinkClick()" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+            <div fxFlex="40px">
+              <img class="matIcon" src="../../assets/linkedin.svg" alt="Icon" />
+            </div>
+            <h3 class="clickable">SikoraSergii</h3>
+          </mat-list-item>
+          <mat-list-item fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+            <div fxFlex="40px"><img class="matIcon" src="../../assets/location.svg" alt="Icon" /></div>
+            <h3>Ukraine, Kamianets-Podilskyi</h3>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!--Skils-->
+  <mat-sidenav-container>
+    <mat-sidenav mode="side"
+                 [opened]="showSidebar"
+                 position="end"
+                 disableClose="false">
+      <mat-card fxLayout="column">
+        <mat-card-title><h5>Skills</h5></mat-card-title>
+        <mat-card-content fxLayout="column">
+          <app-skill-card [imgSource]="'../../assets/angular.png'"
+                          [skill]="'Angular'"
+                          [level]="80"
+                          [levelInfo]="'Very Good'">
+          </app-skill-card>
+          <app-skill-card [imgSource]="'../../assets/nodejs.png'"
+                          [skill]="'Node.js with Express'"
+                          [level]="70"
+                          [levelInfo]="'Very Good'">
+          </app-skill-card>
+          <app-skill-card [imgSource]="'../../assets/mongo.png'"
+                          [skill]="'MongoDB with Mongoose'"
+                          [level]="70"
+                          [levelInfo]="'Very Good'">
+          </app-skill-card>
+          <!--<app-skill-card [imgSource]="'../../assets/html.png'"
+                          [skill]="'HTML'"
+                          [level]="65"
+                          [levelInfo]="'Good'">
+          </app-skill-card>-->
+          <app-skill-card [imgSource]="'../../assets/css.png'"
+                          [skill]="'CSS'"
+                          [level]="65"
+                          [levelInfo]="'Good'">
+          </app-skill-card>
+        </mat-card-content>
+      </mat-card>
+
+
+      <!--Languages-->
+      <mat-card>
+        <mat-card-title><h5>Languages</h5></mat-card-title>
+        <mat-card-content>
+          <app-skill-card [imgSource]="'../../assets/Lang/ukr2.png'"
+                          [skill]="'Ukrainian'"
+                          [level]="95"
+                          [levelInfo]="'Native Speaker'">
+          </app-skill-card>
+          <app-skill-card [imgSource]="'../../assets/Lang/ru2.png'"
+                          [skill]="'Russian'"
+                          [level]="80"
+                          [levelInfo]="'Very Good'">
+          </app-skill-card>
+          <app-skill-card [imgSource]="'../../assets/Lang/eng2.png'"
+                          [skill]="'English'"
+                          [level]="65"
+                          [levelInfo]="'Good'">
+          </app-skill-card>
+        </mat-card-content>
+      </mat-card>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div fxLayot="column">
+        <!--Experiance-->
+        <mat-card class="experience-card">
+          <mat-card-title><h5 fxFlexOffset="12px">Experience</h5></mat-card-title>
+          <mat-card-content>
+            <mat-accordion >
+              <mat-expansion-panel *ngFor="let job of jobs">
+                <mat-expansion-panel-header fxLayout="row">
+                  <mat-panel-title fxFlex="195px" fxLayoutAlign="center">
+                    <h5>{{job.company}}</h5>
+                  </mat-panel-title>
+                  <mat-panel-description>{{job.shortDescription}}</mat-panel-description>
+                </mat-expansion-panel-header>
+                <div fxLayout="column">
+                  <div fxLayout="row" fxFlex="7px" fxLayoutAlign="center center">
+                    <mat-divider [inset]="true" fxLayout="row" fxFlex="100%"></mat-divider>
+                  </div>
+                  <div fxLayout="row">
+                    <div fxLayout="column" fxFlex="200px" fxLayoutAlign="center">
+                      <div fxLayout="row" fxLayoutAlign="center">
+                        <div><img class="job-icon" src="{{job.logo}}" alt="{{job.company}}" /></div>
+                      </div>
+                      <div fxLayout="row" fxLayoutAlign="center"><p>{{job.period}}</p></div>
+                    </div>
+                    <div fxLayout="column" fxFlex="480px">
+                      <div fxLayoutAlign="center"><p>{{job.description}}</p></div>
+                      <mat-chip-list fxLayout="row"  fxLayoutGap="35px">
+                        <div fxFlex="480px" fxLayoutAlign="center">
+                          <mat-chip *ngFor="let stack of job.stack">{{stack}}</mat-chip>
+                        </div>
+                      </mat-chip-list>
+                    </div>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-card-content>
+        </mat-card>
+        <!--Education-->
+        <mat-card class="experience-card">
+          <mat-card-title><h5 fxFlexOffset="12px">Education</h5></mat-card-title>
+          <mat-card-content>
+            <mat-accordion>
+              <mat-expansion-panel *ngFor="let study of study">
+                <mat-expansion-panel-header fxLayout="row">
+                  <mat-panel-title fxFlex="195px" fxLayoutAlign="center">
+                    <h5>{{study.organization}}</h5>
+                  </mat-panel-title>
+                  <mat-panel-description>{{study.shortDescription}}</mat-panel-description>
+                </mat-expansion-panel-header>
+                <div fxLayout="column">
+                  <div fxLayout="row" fxFlex="7px" fxLayoutAlign="center center">
+                    <mat-divider [inset]="true" fxLayout="row" fxFlex="100%"></mat-divider>
+                  </div>
+                  <div fxLayout="row">
+                    <div fxLayout="column" fxFlex="200px" fxLayoutAlign="center">
+                      <div fxLayout="row" fxLayoutAlign="center">
+                        <div><img class="job-icon" src="{{study.logo}}" alt="{{study.organization}}" /></div>
+                      </div>
+                      <div fxLayout="row" fxLayoutAlign="center"><p>{{study.period}}</p></div>
+                    </div>
+                    <div fxLayout="column" fxFlex="480px">
+                      <div fxLayoutAlign="center"><p>{{study.description}}</p></div>
+                    </div>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

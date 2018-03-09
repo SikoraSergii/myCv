@@ -1,0 +1,15 @@
+<div class="card" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start stretch">
+  <div class="skillIconContainer" fxFlex="30px" fxLayoutAlign="start center">
+    <img class="skillIcon" src="{{imgSource}}" alt="{{skill}}" />
+  </div>
+  <div class="main-part-container" fxFlexFill>
+    <div class="skill-level" fxLayout="column" fxLayoutAlign="start stretch">
+      <h4 class="body-2" fxFlex="30px">{{skill}}</h4>
+      <mat-progress-bar mode="determinate" value="{{level}}" ></mat-progress-bar>
+    </div>
+    <div class="skill-info" fxLayout="column" fxLayoutAlign="start end">
+      <h5 class="caption" fxFlex="25px">{{levelInfo}}</h5>
+    </div>
+  </div>
+</div>
+

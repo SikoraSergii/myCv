@@ -1,0 +1,39 @@
+.content {
+  width: 100%;
+  min-height:1050px;
+}
+.header {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.mat-avatar {
+  background-image: url('../../assets/avatar.jpg');
+  background-size: cover;
+  height: 105px;
+  width: 100px;
+}
+mat-sidenav {
+  width: 330px;
+  height: 750px
+
+}
+h2, h3, h4, h5 {
+  margin: 0;
+  text-align: center
+}
+mat-card{
+  padding: 12px
+}
+.job-icon{
+  max-height: 45px;
+  min-width: 45px;
+  max-width: 110px;
+    
+}
+.clickable {
+  cursor:pointer
+}
+p {
+  text-align: center
+}
+

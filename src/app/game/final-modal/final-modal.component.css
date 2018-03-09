@@ -1,0 +1,12 @@
+:host {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+mat-chip.mat-chip{
+  text-align:center
+}

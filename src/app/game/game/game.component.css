@@ -1,0 +1,34 @@
+:host{
+  height: 570px;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+}
+.score-bar{
+  display:flex;
+  justify-content:space-between;
+}
+.card-container {
+  height: 100%;
+  margin-top: 20px;
+}
+.card-list {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-around;
+}
+.unselected {
+  
+}
+.selected{
+  display:normal;
+}
+.done{
+  opacity: 0.25
+}
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px
+}

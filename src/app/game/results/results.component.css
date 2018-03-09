@@ -1,0 +1,9 @@
+
+.mat-form-field {
+  font-size: 14px;
+  width: 70%;
+}
+.mat-table {
+  overflow: auto;
+  min-height: 600px;
+}

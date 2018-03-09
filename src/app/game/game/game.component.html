@@ -1,0 +1,31 @@
+<div fxlayout="column" fxLayoutAlign="center center" >
+  <div class="card-container"
+       [ngStyle]="{'width': 60*columns+'px', 'margin-left':'auto', 'margin-right':'auto'}">
+    <div class="score-bar">
+      <mat-chip-list>
+        <mat-chip color="accent" selected="true">Score: {{score}}</mat-chip>
+      </mat-chip-list>
+      <mat-chip-list>
+        <mat-chip [color]="setTimerAlert()" selected="true">Time: {{min}}:{{sec|number:'2.0-0'}}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="card-container">
+      <mat-grid-list [cols]="columns"
+                     [gutterSize]="10"
+                     rowHeight="50">
+        <mat-grid-tile *ngFor="let card of cards; index as i">
+          <app-card [card]="card"
+                    [ngClass]="{'unselected':!card.isSelected,'selected':card.isSelected, 'done':card.isDone}"
+                    (click)="onCardClick(i)">
+
+          </app-card>
+
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="accent" (click)="startNew()">New game</button>
+    </div>
+  </div>
+</div>
+

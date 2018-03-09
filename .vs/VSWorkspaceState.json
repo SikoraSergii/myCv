@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\about-app",
+    "\\src\\app\\game",
+    "\\src\\app\\game\\card",
+    "\\src\\app\\game\\game",
+    "\\src\\app\\game\\_SharedData",
+    "\\src\\environments",
+    "\\src\\style"
+  ],
+  "SelectedNode": "\\src\\app\\about-app\\about-app.component.ts",
+  "PreviewInSolutionExplorer": false
+}
